@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import * as Scrivito from 'scrivito';
 import styles from '../styles/Home.module.css'
 
+Scrivito.configure({ tenant: "0123456789abcdef0123456789abcdef" });
+
 const Home: NextPage = () => {
   useEffect(() => {
     Scrivito.load(() => Scrivito.Obj.getByPath('/')).then(obj => console.log(obj));
