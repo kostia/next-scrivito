@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react';
+import * as Scrivito from 'scrivito';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    Scrivito.load(() => Scrivito.Obj.getByPath('/')).then(obj => console.log(obj));
+  });
   return (
     <div className={styles.container}>
       <Head>
