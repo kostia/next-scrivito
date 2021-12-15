@@ -5,7 +5,10 @@ import { useEffect } from 'react';
 import * as Scrivito from 'scrivito';
 import styles from '../styles/Home.module.css'
 
-Scrivito.configure({ tenant: "248dcdc062ec51d2f89f91c23d192898" });
+Scrivito.configure({
+  tenant: "c1bd936ef25b6dcccfd7b72b71fe969d",
+  unstable: { assetUrlBase: "http://localhost:8091" },
+});
 
 const Home: NextPage = () => {
   useEffect(() => {

@@ -11,7 +11,7 @@
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "scrivito": "^1.27.0-rc1"
+    "scrivito": "file:../scrivito_js/js/build/npm_scrivito"
   },
   "devDependencies": {
     "@types/node": "16.11.11",
