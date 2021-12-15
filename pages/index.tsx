@@ -6,14 +6,24 @@ import * as Scrivito from 'scrivito';
 import styles from '../styles/Home.module.css'
 
 Scrivito.configure({
-  tenant: "c1bd936ef25b6dcccfd7b72b71fe969d",
+  tenant: "248dcdc062ec51d2f89f91c23d192898",
   unstable: { assetUrlBase: "http://localhost:8091" },
 });
 
-const Home: NextPage = () => {
-  useEffect(() => {
-    Scrivito.load(() => Scrivito.Obj.getByPath('/')).then(obj => console.log(obj));
-  });
+export async function getServerSideProps() {
+  const obj = await Scrivito.load(() => Scrivito.Obj.getByPath('/'));
+  const objCount = await Scrivito.load(() => Scrivito.Obj.all().count());
+
+  return {
+    props: {
+      // objId: obj.id(),
+      objCount,
+    },
+  };
+}
+
+const Home: NextPage = ({ objId, objCount }) => {
+  console.log('>>>>>>>>>>>>>', objCount);
 
   return (
     <div className={styles.container}>
